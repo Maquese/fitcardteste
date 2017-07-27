@@ -1,18 +1,17 @@
 ﻿using Data.Repostorios;
-using Domain.Entidades;
-using DomainContract.Contracts;
 using DomainContracy.Contracts;
+using Ninject.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.ModuleData
+namespace Modules.DataModule
 {
-    class DataModule : Ninject.Modules.NinjectModule
+    public class DataModule : NinjectModule
     {
-        public override void Load() 
+        public override void Load()
         {
             Bind<IRepositorioCategoria>().To<RepositorioCategoria>();
             Bind<IRepositorioEstabelecimento>().To<RepositorioEstabelecimento>();
