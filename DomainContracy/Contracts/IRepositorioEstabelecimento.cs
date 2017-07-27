@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DomainContracy.Contracts
 {
-    interface IRepositorioEstabelecimento : IRepositorioBase<Estabelecimento>
+    public interface IRepositorioEstabelecimento : IRepositorioBase<Estabelecimento>
     {
     }
 }

@@ -14,13 +14,14 @@ namespace Domain.Entidades
         private string _Email;
         private string _Telefone;
         private Categoria _Categoria;
+        private bool _Status;
 
         private Estabelecimento()
         {
 
         }
 
-        public Estabelecimento(string nome, string nomeFantasia, string cnpj, string email, string telefone, Categoria categoria)
+        public Estabelecimento(string nome, string nomeFantasia, string cnpj, string email, string telefone, Categoria categoria, bool status)
         {
             _Nome = nome;
             _NomeFantasia = nomeFantasia;
@@ -28,6 +29,7 @@ namespace Domain.Entidades
             _Email = email;
             _Telefone = telefone;
             _Categoria = categoria;
+            _Status = status;
         }
         
 
@@ -109,5 +111,17 @@ namespace Domain.Entidades
             }
         }
 
+        public bool Status
+        {
+            get
+            {
+                return _Status;
+            }
+
+            private set
+            {
+                _Status = value;
+            }
+        }
     }
 }
