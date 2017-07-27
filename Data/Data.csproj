@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Maps\" />
+    <Folder Include="ModuleData\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DomainContracy\DomainContract.csproj">
