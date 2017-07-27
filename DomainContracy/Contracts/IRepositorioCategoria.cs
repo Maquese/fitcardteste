@@ -9,5 +9,6 @@ namespace DomainContracy.Contracts
 {
     public interface IRepositorioCategoria : IRepositorioBase<Categoria>
     {
+        Categoria BuscarPorNome(string nome);
     }
 }

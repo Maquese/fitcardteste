@@ -14,5 +14,6 @@ namespace DomainContracy.Contracts
         T Encontrar(Guid id);
         void Modificar(T entidade);
         IList<T> Listar();
+        void Salvar();
     }
 }

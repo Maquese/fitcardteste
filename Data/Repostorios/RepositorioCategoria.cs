@@ -16,5 +16,10 @@ namespace Data.Repostorios
         {
             _UnidadeTrabalho = unidadeTrabalho;
         }
+
+        public Categoria BuscarPorNome(string nome)
+        {
+            return Repositorio.Where(x => x.Nome.ToUpper().Equals(nome.ToUpper())).FirstOrDefault();
+        }
     }
 }

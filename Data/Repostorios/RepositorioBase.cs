@@ -13,37 +13,34 @@ namespace Data.Repostorios
     public class RepositorioBase<T> : IRepositorioBase<T> where T : Entidade
     {
         private IUnidadeDeTrabalho _UnidadeTrabalho;
-        private DbSet<T> _Repositorio;
 
         public DbSet<T> Repositorio
         {
             get
             {
-                return _Repositorio;
+                return _UnidadeTrabalho.Contexto.Set<T>();
             }
-        }
-        
+        }        
 
         public RepositorioBase(IUnidadeDeTrabalho unidadeTrabalho)
         {
             _UnidadeTrabalho = unidadeTrabalho;
-            _Repositorio = unidadeTrabalho.Contexto.Set<T>();
             
         }
 
         public void Adicionar(T entidade)
         {
-            _Repositorio.Add(entidade);
+            Repositorio.Add(entidade);
         }
 
         public T Encontrar(Guid id)
         {
-           return _Repositorio.Find(id);
+           return Repositorio.Find(id);
         }
 
         public IList<T> Listar()
         {
-            return _Repositorio.ToList();
+            return Repositorio.ToList();
         }
 
         public void Modificar(T entidade)
@@ -53,7 +50,12 @@ namespace Data.Repostorios
 
         public void Remover(T entidade)
         {
-            _Repositorio.Remove(entidade);
+            Repositorio.Remove(entidade);
+        }
+
+        public void Salvar()
+        {
+            _UnidadeTrabalho.Salvar();
         }
     }
 }

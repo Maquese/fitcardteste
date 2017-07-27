@@ -1,0 +1,13 @@
+﻿using ApplicationContract.Contracts;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Application.Apps
+{
+    public partial class Application : IEstabelecimentoApp
+    {
+    }
+}
