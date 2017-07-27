@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainContracy.Contracts
+namespace DomainContract.Contracts
 {
     public interface IRepositorioBase<T> where T : Entidade
     {

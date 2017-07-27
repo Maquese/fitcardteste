@@ -38,6 +38,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -52,6 +56,7 @@
     <Compile Include="Contexto\ContextoBanco.cs" />
     <Compile Include="Contexto\IUnidadeDeTrabalho.cs" />
     <Compile Include="Contexto\UnidadeDeTrabalho.cs" />
+    <Compile Include="ModuleData\DataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repostorios\RepositorioEstabelecimento.cs" />
     <Compile Include="Repostorios\RepositorioBase.cs" />
@@ -64,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Maps\" />
-    <Folder Include="ModuleData\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DomainContracy\DomainContract.csproj">

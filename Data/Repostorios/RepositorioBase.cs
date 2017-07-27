@@ -1,6 +1,6 @@
 ﻿using Data.Contexto;
 using Domain.Entidades;
-using DomainContracy.Contracts;
+using DomainContract.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

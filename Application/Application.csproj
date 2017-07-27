@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,9 +47,12 @@
     <Compile Include="Apps\Application.cs" />
     <Compile Include="Apps\ApplicationCategoria.cs" />
     <Compile Include="Apps\ApplicationEstabelecimento.cs" />
+    <Compile Include="ModuleApp\AppModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApplicationContract\ApplicationContract.csproj">
       <Project>{05164D42-B8E6-4C62-B2D9-93FB05219137}</Project>
