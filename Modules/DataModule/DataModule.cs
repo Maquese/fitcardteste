@@ -14,8 +14,8 @@ namespace Modules.DataModule
     {
         public override void Load()
         {
-            Bind<IRepositorioCategoria>().To<RepositorioCategoria>();
-            Bind<IRepositorioEstabelecimento>().To<RepositorioEstabelecimento>();
+            Bind<IRepositorioCategoria>().To<RepositorioCategoria>().InSingletonScope(); 
+            Bind<IRepositorioEstabelecimento>().To<RepositorioEstabelecimento>().InSingletonScope(); 
             Bind<IUnidadeDeTrabalho>().To<UnidadeDeTrabalho>().InSingletonScope();
         }
     }
