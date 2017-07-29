@@ -14,7 +14,7 @@ namespace Data.Maps
         {
             HasKey(x => x.Id);
             Property(x => x.Nome).IsRequired();
-            Property(x => x.Cnpj).IsRequired();
+            Property(x => x.Cnpj).IsRequired().HasMaxLength(14).IsFixedLength();
 
         }
     }

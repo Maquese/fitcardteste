@@ -40,7 +40,7 @@ namespace Data.Repostorios
 
         public IList<T> Listar()
         {
-            return Repositorio.ToList();
+            return _UnidadeTrabalho.Contexto.Set<T>().ToList();
         }
 
         public void Modificar(T entidade)

@@ -9,7 +9,13 @@ namespace ApplicationContract.Contracts
 {
     public interface IEstabelecimentoApp : IApplication
     {
+        void Editar(EstabelecimentoDTO estabelecimento);
+
         IList<EstabelecimentoDTO> Listar();
         void Novo(EstabelecimentoDTO estabelecimento);
+
+        EstabelecimentoDTO Buscar(Guid id);
+
+        void Excluir(Guid id);
     }
 }

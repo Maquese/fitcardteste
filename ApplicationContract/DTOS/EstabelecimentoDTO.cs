@@ -17,6 +17,7 @@ namespace ApplicationContract.DTOS
         public CategoriaDTO Categoria { get; set; }
         public bool Status { get; set; }
 
-        public Guid CategoriaId { get; set; }
+        public Guid IdCategoria { get; set; }
+
     }
 }

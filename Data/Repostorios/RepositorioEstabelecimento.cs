@@ -17,5 +17,10 @@ namespace Data.Repostorios
         {
             _UnidadeDeTrabalho = unidadeTrabalho;
         }
+
+        public IList<Estabelecimento> ListarEstabelecimentos()
+        {
+            return Repositorio.Include("Categoria").ToList();
+        }
     }
 }

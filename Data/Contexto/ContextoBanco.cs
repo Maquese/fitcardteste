@@ -18,6 +18,8 @@ namespace Data.Contexto
 
         public ContextoBanco() : base("DbFitCard")
         {
+            Configuration.LazyLoadingEnabled = false;
+            
             Database.SetInitializer<ContextoBanco>(new DbStart());
         }
 

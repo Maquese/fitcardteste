@@ -4,21 +4,21 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Estabelecimentos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Adicionar Novo", "Create")
 </p>
-<table class="table">
+<table class="table table-responsive table-condensed table-striped">
     <tr>
-        <th>Nome</th>
-        <th>Nome Fantasia</th>
-        <th>Cnpj</th>
-        <th>Email</th>
-        <th>Telefone</th>
-        <th>Categoria</th>
-        <th>Status</th>
-        <th>Ação</th>
+        <th style="text-align:center">Nome</th>
+        <th style="text-align:center">Nome Fantasia</th>
+        <th style="text-align:center">Cnpj</th>
+        <th style="text-align:center">Email</th>
+        <th style="text-align:center">Telefone</th>
+        <th style="text-align:center">Categoria</th>
+        <th style="text-align:center">Status</th>
+        <th style="text-align:center">Ação</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -55,9 +55,9 @@
                 </td>
             }
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Editar", "Edit", new { item.Id }) |
+            @Html.ActionLink("Visualizar", "Details", new { item.Id }) |
+            @Html.ActionLink("Excluir", "Delete", new { item.Id })
         </td>
     </tr>
 }

@@ -136,7 +136,7 @@ namespace Domain.Entidades
         {
             if (_Email != null && _Email != string.Empty)
             {
-                if (!Email.Contains("@"))
+                if (!Email.Contains("@") || Email.Contains(" "))
                     throw new EmailException();
             }
         }
@@ -147,6 +147,18 @@ namespace Domain.Entidades
             {
                 throw new TelefoneException();
             }
+        }
+
+        public void Modificar(string nome, string nomeFantasia, string cnpj, string email, string telefone, Categoria categoria, bool status)
+        {
+            _Nome = nome;
+            _NomeFantasia = nomeFantasia;
+            _CNPJ = cnpj;
+            _Email = email;
+            _Telefone = telefone;
+            _Categoria = categoria;
+            _Status = status;
+            VerificarEstabelecimento();
         }
 
     }

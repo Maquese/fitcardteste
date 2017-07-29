@@ -1,7 +1,7 @@
 ﻿@model ApplicationContract.DTOS.EstabelecimentoDTO
 
 @{
-    ViewBag.Title = "Novo Estabelecimento";
+    ViewBag.Title = "Modificar";
 }
 <div>
     <p style="color:red">
@@ -9,17 +9,19 @@
     </p>
 </div>
 
-<h2>Novo</h2>
 
+<h2>Modificar</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Estabelecimento:</h4>
+        <h4>Estabelecimento</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
         <div class="form-group">
             @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -29,7 +31,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NomeFantasia, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Nome Fantasia", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NomeFantasia, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NomeFantasia, "", new { @class = "text-danger" })
@@ -39,7 +41,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CNPJ, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CNPJ, new { htmlAttributes = new { @class = "form-control" , @required = true , @maxlength = 14, @minlength = 14 } })
+                @Html.EditorFor(model => model.CNPJ, new { htmlAttributes = new { @class = "form-control", @required = true, @maxlength = 14, @minlength = 14 } })
                 @Html.ValidationMessageFor(model => model.CNPJ, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -47,7 +49,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" , @type = "email" } })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @type = "email" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -69,16 +71,17 @@
                 </div>
             </div>
         </div>
+
         <div class="form-group">
             @Html.Label("Categoria", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-               @Html.DropDownListFor(x => x.IdCategoria, ViewBag.Lista as SelectList, new {@class= "form-control" })
+                @Html.DropDownList("asdas",(SelectList)ViewBag.Lista, new { @class = "form-control", @name="IdCategiria", @id = "IdCategoria" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Adicionar" class="btn btn-default" />
+                <input type="submit" value="Modificar" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -87,7 +90,3 @@
 <div>
     @Html.ActionLink("Estabelecimentos", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

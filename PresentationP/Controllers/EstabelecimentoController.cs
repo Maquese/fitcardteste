@@ -25,9 +25,10 @@ namespace PresentationP.Controllers
         }
 
         // GET: Estabelecimento/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
-            return View();
+           var estabelecimento = _EstabelecimentoApp.Buscar(id);
+            return View(estabelecimento);
         }
 
         // GET: Estabelecimento/Create
@@ -52,57 +53,65 @@ namespace PresentationP.Controllers
 
                 ViewBag.ErrorException = e.Message;
                 CarregarCategorias();
-                return View();
+                return View(estabelecimento);
             }
         }
 
         // GET: Estabelecimento/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+           var estabelecimento =  _EstabelecimentoApp.Buscar(id);
+
+            CarregarCategorias(estabelecimento.Categoria.Id.ToString());
+            return View(estabelecimento);
         }
 
         // POST: Estabelecimento/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(EstabelecimentoDTO estabelecimento,Guid asdas)
         {
             try
             {
+                estabelecimento.IdCategoria = asdas;
                 // TODO: Add update logic here
-
+                _EstabelecimentoApp.Editar(estabelecimento);
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception e)
             {
-                return View();
+                ViewBag.ErrorException = e.Message;
+                CarregarCategorias(asdas.ToString());
+                return View(estabelecimento);
             }
         }
 
         // GET: Estabelecimento/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            return View(_EstabelecimentoApp.Buscar(id));
         }
 
         // POST: Estabelecimento/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(EstabelecimentoDTO estabelecimento)
         {
             try
             {
-                // TODO: Add delete logic here
+                _EstabelecimentoApp.Excluir(estabelecimento.Id);
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception e)
             {
+                ViewBag.ExceptionError = e.Message;
                 return View();
             }
         }
 
-        private void CarregarCategorias()
+        private void CarregarCategorias(string id = null)
         {
-            ViewBag.Categorias = new SelectList(_CategoriaApp.Listar(),"Id","Nome");
+
+            ViewBag.Lista = new SelectList(_CategoriaApp.Listar().OrderBy(x => x.Nome),"Id","Nome",id);
         }
     }
 }

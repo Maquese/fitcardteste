@@ -10,5 +10,6 @@ namespace DomainContracy.Contracts
 {
     public interface IRepositorioEstabelecimento : IRepositorioBase<Estabelecimento>
     {
+        IList<Estabelecimento> ListarEstabelecimentos();
     }
 }

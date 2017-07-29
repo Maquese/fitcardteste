@@ -51,6 +51,10 @@ namespace Data.Contexto
             {
 
                 t.Rollback();
+                foreach (var item in Contexto.ChangeTracker.Entries())
+                {
+                    item.State = EntityState.Detached;
+                }
                 throw e;
             }
         }
