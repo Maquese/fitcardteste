@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Adicionar Novo", "Create")
 </p>
-<table class="table table-responsive table-condensed table-striped">
+<table class="table table-responsive table-condensed table-striped table-bordered">
     <tr>
         <th style="text-align:center">Nome</th>
         <th style="text-align:center">Nome Fantasia</th>
@@ -23,38 +23,38 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td style="text-align:center">
             @item.Nome
         </td>
-        <td>
+        <td style="text-align:center">
             @item.NomeFantasia
         </td>
-        <td>
+        <td style="text-align:center">
             @item.CNPJ
         </td>
-        <td>
+        <td style="text-align:center">
             @item.Email
         </td>
-        <td>
+        <td style="text-align:center">
             @item.Telefone
         </td>
-        <td>
+        <td style="text-align:center">
             @item.Categoria.Nome
         </td>
         
             @if (item.Status == true)
             {
-                <td>
+                <td style="text-align:center">
                     Ativo
                 </td>
             }
             else
             {
-                <td>
+                <td style="text-align:center">
                     Inativo
                 </td>
             }
-        <td>
+        <td style="text-align:center">
             @Html.ActionLink("Editar", "Edit", new { item.Id }) |
             @Html.ActionLink("Visualizar", "Details", new { item.Id }) |
             @Html.ActionLink("Excluir", "Delete", new { item.Id })
