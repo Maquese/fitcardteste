@@ -1,4 +1,5 @@
-﻿using Data.Repostorios;
+﻿using Data.Contexto;
+using Data.Repostorios;
 using DomainContracy.Contracts;
 using Ninject.Modules;
 using System;
@@ -15,6 +16,7 @@ namespace Modules.DataModule
         {
             Bind<IRepositorioCategoria>().To<RepositorioCategoria>();
             Bind<IRepositorioEstabelecimento>().To<RepositorioEstabelecimento>();
+            Bind<IUnidadeDeTrabalho>().To<UnidadeDeTrabalho>().InSingletonScope();
         }
     }
 }

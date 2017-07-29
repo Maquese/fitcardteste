@@ -30,12 +30,12 @@ namespace Data.Repostorios
 
         public void Adicionar(T entidade)
         {
-            Repositorio.Add(entidade);
+            _UnidadeTrabalho.Contexto.Set<T>().Add(entidade);
         }
 
         public T Encontrar(Guid id)
         {
-           return Repositorio.Find(id);
+            return _UnidadeTrabalho.Contexto.Set<T>().Find(id);
         }
 
         public IList<T> Listar()

@@ -43,6 +43,8 @@
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Entidade.cs" />
     <Compile Include="Entidades\Estabelecimento.cs" />
+    <Compile Include="Exceptions\EmailException.cs" />
+    <Compile Include="Exceptions\TelefoneException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

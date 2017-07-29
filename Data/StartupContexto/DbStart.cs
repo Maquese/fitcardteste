@@ -10,8 +10,12 @@ namespace Data.StartupContexto
 {
     public class DbStart : CreateDatabaseIfNotExists<ContextoBanco>
     {
-        public override void InitializeDatabase(ContextoBanco context)
+        protected override void Seed(ContextoBanco context)
         {
+
+
+            base.Seed(context);
+
             context.Categoria.Add(new Domain.Entidades.Categoria("Supermercado"));
 
             context.Categoria.Add(new Domain.Entidades.Categoria("Restaurante"));
@@ -23,7 +27,7 @@ namespace Data.StartupContexto
             context.Categoria.Add(new Domain.Entidades.Categoria("Oficina"));
 
             context.SaveChanges();
-            base.InitializeDatabase(context);
+
         }
     }
 }

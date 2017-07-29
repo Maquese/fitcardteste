@@ -12,5 +12,7 @@ namespace ApplicationContract.Contracts
         void Adicionar(CategoriaDTO categoria);
 
         CategoriaDTO BuscarPorNome(string nome);
+
+        IList<CategoriaDTO> Listar();
     }
 }

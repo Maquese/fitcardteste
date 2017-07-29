@@ -32,5 +32,6 @@ namespace Domain.Entidades
                 _Nome = value;
             }
         }
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using Data.StartupContexto;
+﻿using Data.Maps;
+using Data.StartupContexto;
 using Domain.Entidades;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Data.Contexto
         public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Estabelecimento> Estabelecimento { get; set; }
 
-        public ContextoBanco() : base("DbTeste")
+        public ContextoBanco() : base("DbFitCard")
         {
             Database.SetInitializer<ContextoBanco>(new DbStart());
         }
@@ -23,6 +24,8 @@ namespace Data.Contexto
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Configurations.Add(new CategoriaMap());
+            modelBuilder.Configurations.Add(new EstabelecimentoMap());
             base.OnModelCreating(modelBuilder);
         }
     }

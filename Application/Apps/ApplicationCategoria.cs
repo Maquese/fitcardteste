@@ -29,5 +29,18 @@ namespace Application.Apps
 
             return retorno;
         }
+
+        IList<CategoriaDTO> ICategoriaApp.Listar()
+        {
+            IList<CategoriaDTO> retorno = new List<CategoriaDTO>();
+
+            var lista = _RepositorioCategoria.Listar();
+
+            foreach (var item in lista)
+            {
+                retorno.Add(new CategoriaDTO { Id = item.Id, Nome = item.Nome });
+            }
+            return retorno;
+        }
     }
 }

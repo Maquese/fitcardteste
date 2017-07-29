@@ -14,6 +14,8 @@ namespace Modules.AppModule
         public override void Load()
         {
             Bind<IApplication>().To<Application.Apps.Application>();
+            Bind<ICategoriaApp>().To<Application.Apps.Application>();
+            Bind<IEstabelecimentoApp>().To<Application.Apps.Application>();
         }
     }
 }

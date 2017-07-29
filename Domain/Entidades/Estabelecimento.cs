@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,7 @@ namespace Domain.Entidades
             _Telefone = telefone;
             _Categoria = categoria;
             _Status = status;
+            VerificarEstabelecimento();
         }
         
 
@@ -59,7 +61,7 @@ namespace Domain.Entidades
             }
         }
 
-        public string CNPJ
+        public string Cnpj
         {
             get
             {
@@ -98,7 +100,7 @@ namespace Domain.Entidades
             }
         }
 
-        public Categoria Categoria
+        public virtual Categoria Categoria
         {
             get
             {
@@ -123,5 +125,29 @@ namespace Domain.Entidades
                 _Status = value;
             }
         }
+
+        private void VerificarEstabelecimento()
+        {
+            VerificarEmail();
+            VerificarCategoria();
+        }
+
+        private void VerificarEmail()
+        {
+            if (_Email != null && _Email != string.Empty)
+            {
+                if (!Email.Contains("@"))
+                    throw new EmailException();
+            }
+        }
+
+        private void VerificarCategoria()
+        {
+            if(_Categoria.Nome == "Supermercado" && (Telefone == null || Telefone == string.Empty))
+            {
+                throw new TelefoneException();
+            }
+        }
+
     }
 }
